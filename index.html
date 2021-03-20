@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Piero Capra" />
+    <meta
+      name="description"
+      content="Find information about a country through APIs"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GeoInfo</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="vendors/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="vendors/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="vendors/favicon/favicon-16x16.png">
+    <link rel="manifest" href="vendors/favicon/site.webmanifest">
+    <link rel="mask-icon" href="vendors/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="vendors/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="vendors/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="css/style-min.css"/>
+  </head>
+  <body>
+    <header class="header">
+      <img src="vendors/favicon/favicon-32x32.png" alt="logo">
+      <h1>GeoInfo</h1>
+    </header>
+    <main class="main">
+      <section class="section-elevation">
+        <div class="header elevation__header">
+          <h3>Elevation</h3>
+          <p>This API will return the elevation in meters at the given coordinates.</p>
+        </div>
+        <div class="coords">
+          <p>Insert the coordinates (example matches Langenhain, Frankfurt, Germany):</p>
+          <div class="input-line">
+            <label for="latElev">Latitude</label>
+            <input type="number" placeholder="ex: 50.1" id="latElev" class="input-field">
+          </div>
+          <div class="input-line">
+            <label for="lngElev">Longitude</label>
+            <input type="number" placeholder="ex: 8.4" id="lngElev" class="input-field">
+          </div> 
+          <div class="buttons">
+            <button type="submit" id="btnElevCoords">Submit</button>
+            <button type="button" id="btnResetElev">Reset</button>
+          </div>
+        </div>    
+        <div id="addressResults" class="results">
+          <p>Elevation above sea level: <span id="srtm3" class="data"></span></p>
+        </div>
+      </section>
+
+      <section class="section-place">
+        <div class="header place__header">
+          <h3>Populated location</h3>
+          <p>This API will return the closest populated location to the given coordinates.</p>
+        </div>
+        <div class="coords">
+          <p>Insert the coordinates (example matches Novokormikha, Russia):</p>
+          <div class="input-line">
+            <label for="latPlace">Latitude</label>
+            <input type="number" id="latPlace" placeholder="ex: 52.1" class="input-field">
+          </div>
+          <div class="input-line">
+            <label for="lngPlace">Longitude</label>
+            <input type="number" id="lngPlace" placeholder="ex: 80" class="input-field">
+          </div>    
+          <div class="buttons">
+            <button type="submit" id="btnPlaceCoord">Submit</button>
+            <button type="button" id="btnResetPlace">Reset</button>
+          </div>
+        </div>
+        <div id="addressResults">
+          <div>
+            <p>Country: <span id="countryName" class="data"></span>
+            </p>
+            
+          </div>
+          <div>
+            <p>Locality:  <span id="toponymName" class="data"></span></p>
+          </div>
+          <div>
+            <p>Distance:  <span id="distance" class="data"></span></p>        
+          </div>
+        </div>
+      </section>
+
+      <section class="section-earthquake">
+        <div class="header earthquakes__header">
+          <h3>Earthquakes</h3>
+          <p>This operation will return the date of the most relevant earthquake in the selected area and highest in intensity.</p>
+        </div>
+        <div class="coords">
+          <p>Insert the coordinates (example nearby Niiyamahama, Japan):</p>
+          <div class="input-line">
+            <label for="north">North</label>
+            <input type="number" placeholder="ex: 44.1" id="north" class="input-field">
+          </div>
+          <div class="input-line">
+            <label for="south">South</label>
+            <input type="number" placeholder="ex: -9.9" id="south" class="input-field">
+          </div>
+          <div class="input-line">
+            <label for="east">East </label>
+            <input type="number" placeholder="ex: -22.4" id="east" class="input-field">
+          </div>
+          <div class="input-line">
+            <label for="west">West</label>
+            <input type="number" placeholder="ex: 55.2" id="west" class="input-field">
+          </div>
+          <div class="buttons">
+            <button type="submit" id="btnEQcoord">Submit</button>
+            <button type="button" id="btnResetEQcoord">Reset</button>
+          </div>  
+        </div>  
+        <div id="EQResults">
+          <div>
+            <p>Date and time: <span id="EQdatetime" class="data"></span></p>
+          </div>
+          <div>
+            <p>Magnitude: <span id="magnitude" class="data"></span></p>
+          </div>
+        </div>
+      </section>
+        
+    </main>
+    <div id="preloader"></div>
+
+    <script src=vendors/jquery/jquery-2.2.3.min.js></script>
+    <script src="js/script-min.js"></script>
+  </body>
+</html>
